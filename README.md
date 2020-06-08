@@ -23,8 +23,11 @@ numpy=1.16.5
 dgl-cu101=0.4.1
 
 To be eaier, you can also simply apply my conda environment by :
+
 conda create  --name necare --file requirements.txt
 
 or:
 
 conda env create -f environment.yml
+
+
