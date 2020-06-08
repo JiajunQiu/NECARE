@@ -3,9 +3,7 @@ NEtwork-based CAncer gene RElationship prediciton
 
 NECARE is a network-based algrithom which use Relational Graph Convolutional Network (R-GCN) to predict genes inetraction in cancer
 
-The feature NECARE used include:1) knowledge-based feature OPA2Vec,
-
-                                2)cancer specific feature which means mutation and expression profile of each gene from TCGA
+The feature NECARE used include:1) knowledge-based feature OPA2Vec;                                                                                                         2)cancer specific feature which means mutation and expression profile of each gene from TCGA
                                 
 The ouput is binary (1 or 0) and directional.
 
@@ -25,3 +23,8 @@ numpy=1.16.5
 dgl-cu101=0.4.1
 
 To be eaier, you can also simply apply my conda environment by :
+conda create  --name necare --file requirements.txt
+
+or:
+
+conda env create -f environment.yml
