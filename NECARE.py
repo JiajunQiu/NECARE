@@ -55,16 +55,17 @@ class LinkPredict(nn.Module):
         self.rgcn = RGCN(in_dim, h_dim, h_dim, num_rels, num_bases,
                          num_hidden_layers, dropout, use_cuda)
         self.reg_param = reg_param
-        self.w_relation = nn.Parameter(torch.Tensor(2,h_dim))
+        self.w_relation = nn.Parameter(torch.Tensor(1,h_dim))
         nn.init.xavier_uniform_(self.w_relation,
                                 gain=nn.init.calculate_gain('relu'))
 
     def calc_score(self, embedding, triplets):
         s = embedding[triplets[:,0]]
         r1 = self.w_relation[0]
-        r2 = self.w_relation[1]
+#        r2 = self.w_relation[1]
         o = embedding[triplets[:,2]]
-        score = torch.sum(s * r1+r2 * o, dim=1)
+#        score = torch.sum(s * r1+r2 * o, dim=1)
+        score = torch.sum(s * r1 * o, dim=1)
         return score
 
     def forward(self, g, h, r, norm):
