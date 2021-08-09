@@ -1,7 +1,7 @@
 # NECARE
-NEtwork-based CAncer gene RElationship prediciton
+NEtwork-based CAncer PPI pREdiction
 
-NECARE is a network-based algrithom which use Relational Graph Convolutional Network (R-GCN) to predict genes inetraction in cancer
+NECARE is a network-based algrithom which use Relational Graph Convolutional Network (R-GCN) to predict protein-protein inetraction in cancer
 
 The feature NECARE used include:1) knowledge-based feature OPA2Vec;                                                                                                         2)cancer specific feature which means mutation and expression profile of each gene from TCGA
                                 

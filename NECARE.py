@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
-# NECARE - NEtwork-based CAncer gene RElationship prediciton
+# NECARE - NEtwork-based CAncer PPI pREdiction
 #
 # Written by Jiajun Qiu <jiajunqiu@hotmail.com>
 #
@@ -62,9 +62,10 @@ class LinkPredict(nn.Module):
     def calc_score(self, embedding, triplets):
         s = embedding[triplets[:,0]]
         r1 = self.w_relation[0]
-        r2 = self.w_relation[1]
+#        r2 = self.w_relation[1]
         o = embedding[triplets[:,2]]
-        score = torch.sum(s * r1+r2 * o, dim=1)
+#        score = torch.sum(s * r1+r2 * o, dim=1)
+        score = torch.sum(s * r1 * o, dim=1)
         return score
 
     def forward(self, g, h, r, norm):
@@ -90,13 +91,13 @@ def node_norm_to_edge_norm(g, node_norm):
 
 
 def calc_final_score(embedding, w_relation,pairs):
-
     # DistMult
     s = embedding[pairs[:,0]]
     r1 = w_relation[0]
-    r2 = w_relation[1]
+#    r2 = w_relation[1]
     o = embedding[pairs[:,1]]
-    score = torch.sum(s * r1+r2 * o, dim=1)
+    score = torch.sum(s * r1 * o, dim=1)
+#    score = torch.sum(s * r1+r2 * o, dim=1)
     score = torch.sigmoid(score)
     return score
 
