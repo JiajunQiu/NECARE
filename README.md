@@ -9,7 +9,7 @@ The ouput is binary (1 or 0) and directional.
 
 For example, if the input genes are 'TP53 KRAS' (tab-delimited), then output '1' means TP53 has a interaction to KRAS.
 
-To check the inetraction from KRAS to TP53, you need to set input to be 'KRAS TP53' (tab-delimited).
+
 
 ## How to install
 NECARE is programmed bsaed in pytorch(with cuda)(python=3.7.4), so you need to install pytoch first:
