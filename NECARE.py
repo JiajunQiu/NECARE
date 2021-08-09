@@ -55,7 +55,7 @@ class LinkPredict(nn.Module):
         self.rgcn = RGCN(in_dim, h_dim, h_dim, num_rels, num_bases,
                          num_hidden_layers, dropout, use_cuda)
         self.reg_param = reg_param
-        self.w_relation = nn.Parameter(torch.Tensor(2,h_dim))
+        self.w_relation = nn.Parameter(torch.Tensor(1,h_dim))
         nn.init.xavier_uniform_(self.w_relation,
                                 gain=nn.init.calculate_gain('relu'))
 
